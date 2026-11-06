@@ -107,6 +107,10 @@ menu "Muse"
             bool "M5Stack StickS3 (ESP32-S3, two buttons, no touch)"
             depends on IDF_TARGET_ESP32S3
 
+        config MUSE_BOARD_M5STACK_ATOM_VOICES3R
+            bool "M5Stack Atom VoiceS3R / EchoS3R (ESP32-S3, no screen, one button)"
+            depends on IDF_TARGET_ESP32S3
+
         config MUSE_BOARD_CROWPANEL_ADVANCE_43
             bool "Elecrow CrowPanel Advance 4.3 V1.3 (800x480 touch, speaker and mic)"
             depends on IDF_TARGET_ESP32S3
@@ -200,6 +204,7 @@ menu "Muse"
         default "waveshare_c6_206" if MUSE_BOARD_WAVESHARE_C6_206
         default "sensecap_watcher" if MUSE_BOARD_SENSECAP_WATCHER
         default "m5stack_sticks3" if MUSE_BOARD_M5STACK_STICKS3
+        default "m5stack_atom_voices3r" if MUSE_BOARD_M5STACK_ATOM_VOICES3R
         default "crowpanel_advance_43" if MUSE_BOARD_CROWPANEL_ADVANCE_43
         default "m5stack_stickc_plus2" if MUSE_BOARD_M5STACK_STICKC_PLUS2
         default "m5stack_cardputer_adv" if MUSE_BOARD_M5STACK_CARDPUTER_ADV

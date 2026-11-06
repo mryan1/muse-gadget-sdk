@@ -96,6 +96,7 @@ BOARDS = {
     "Waveshare ESP32-C6-Touch-AMOLED-2.06": "c6-206",
     "Seeed SenseCAP Watcher": "watcher",
     "M5Stack StickS3": "sticks3",
+    "M5Stack Atom VoiceS3R": "atom-voices3r",
     "Elecrow CrowPanel Advance 4.3 V1.3": "crowpanel-43",
     "M5Stack Cardputer ADV": "cardputer-adv",
     "M5Stack StickC Plus2": "plus2",

@@ -78,6 +78,7 @@ before adding a feature to one.
 | Seeed SenseCAP Watcher | `esp32s3` | `devices/sdkconfig.muse;devices/sdkconfig.muse-sensecap-watcher` | manual |
 | M5Stack Cardputer ADV (experimental) | `esp32s3` | `devices/sdkconfig.muse;devices/sdkconfig.muse-m5stack-cardputer-adv` | `tools/muse/board.sh build cardputer-adv` |
 | M5Stack StickS3 | `esp32s3` | `devices/sdkconfig.muse;devices/sdkconfig.muse-m5stack-sticks3` | manual |
+| M5Stack Atom VoiceS3R / EchoS3R (no screen) | `esp32s3` | `devices/sdkconfig.muse;devices/sdkconfig.muse-m5stack-atom-voices3r` | `tools/muse/board.sh build atom-voices3r` |
 | Elecrow CrowPanel Advance 4.3 V1.3 | `esp32s3` | `devices/sdkconfig.muse;devices/sdkconfig.muse-crowpanel-advance-43` | `tools/muse/board.sh build crowpanel-43` |
 | M5Stack StopWatch | `esp32s3` | `devices/sdkconfig.muse;devices/sdkconfig.muse-m5stack-stopwatch` | manual |
 | Seeed XIAO ESP32-S3 1.47 Touch Display | `esp32s3` | `devices/sdkconfig.muse;devices/sdkconfig.muse-seeed-xiao-s3-147` | `tools/muse/board.sh build xiao147` |
@@ -168,7 +169,7 @@ voice note that Muse answers in the app, and the dial sets the speaker volume
 
 ### Boards with the full UI, by hand
 
-`tools/muse/board.sh build|flash <s3|s3n|s3-18|s3-216|s3-206|143c|143|146|aipi|atk-box|box3|c6|c6-206|watcher|sticks3|crowpanel-43|plus2|cardputer-adv|stopwatch|xiao147|cores3|core2|jc3248w535|lcd7|lcd128|lcd349|spotpear|vn183|ai-passport|echoear|p4lcd35|rorolee|lcd19|smartring-plus> [SERIAL|PORT]`
+`tools/muse/board.sh build|flash <s3|s3n|s3-18|s3-216|s3-206|143c|143|146|aipi|atk-box|box3|c6|c6-206|watcher|sticks3|atom-voices3r|crowpanel-43|plus2|cardputer-adv|stopwatch|xiao147|cores3|core2|jc3248w535|lcd7|lcd128|lcd349|spotpear|vn183|ai-passport|echoear|p4lcd35|rorolee|lcd19|smartring-plus> [SERIAL|PORT]`
 builds one board in `build-muse-<profile>/`, logs to
 `/tmp/muse_build_<board>.log`, and clears `managed_components/` before and
 after so it doesn't clash with other boards. When flashing, it finds the
@@ -203,7 +204,7 @@ arguments, except on the SenseCAP Watcher: `idf.py flash` runs plain esptool,
 which fails on its USB bridge (see "Flash it"). Build the Watcher with
 `idf.py`, flash it with `tools/muse/board.sh flash watcher`, then
 `idf.py … -p PORT monitor` as usual; reading from the bridge works. Muse builds use `partitions_muse.csv` and need 16 MB of flash or
-more, except the StickS3, StickC Plus2, Cardputer ADV, AI Passport and Waveshare 1.43C, which have 8 MB and use
+more, except the StickS3, Atom VoiceS3R, StickC Plus2, Cardputer ADV, AI Passport and Waveshare 1.43C, which have 8 MB and use
 `partitions_muse_8mb.csv`.
 
 On the Watcher, rotation opens and pages through the latest reply. A short
@@ -299,7 +300,7 @@ flash size and status backend.
    | `top-right`, or `top-left` with live calls (`yellow` on older firmware) | M5Stack StopWatch |
    | `USR1` | Seeed XIAO ESP32-S3 1.47 Touch Display |
    | `power` | M5Stack CoreS3 |
-   | `front` | M5Stack StickS3, or StickC Plus2 — tell them apart by the port: the StickS3 is native USB, the Plus2 is a CH9102 `usbserial` |
+   | `front` | M5Stack StickS3, Atom VoiceS3R or StickC Plus2 — the Plus2 is a CH9102 `usbserial`; the StickS3 and Atom VoiceS3R are native USB, told apart by the `muse: board:` line a reset logs |
    | `top` | Waveshare ESP32-S3-Touch-AMOLED-1.75C |
    | `key` | Waveshare ESP32-S3-Touch-AMOLED-2.16 |
    | `bottom right` | AIPI Lite |
